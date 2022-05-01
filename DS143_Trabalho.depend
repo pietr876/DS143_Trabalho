@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1650664256 source:c:\users\pietro giacomitti\documents\codeblocks\ds143_trabalho\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1651437074 source:c:\users\pietro giacomitti\documents\codeblocks\ds143_trabalho\indexer.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	<math.h>
+
