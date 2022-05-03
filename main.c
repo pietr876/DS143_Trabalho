@@ -30,16 +30,6 @@ typedef struct arvore {
     struct arvore *dir;
 } Arvore;
 
-Arvore * buscar (Arvore *a, char* c) {
-    if (a == NULL) return 0;
-    else if (strcmp(c, a->info)< 0)
-        return buscar (a->esq, c);
-    else if (strcmp(c, a->info)> 0)
-        return buscar (a->dir, c);
-    else
-        return a;
-}
-
 Arvore* inserir (Arvore * a, char * c) {
     if(a == NULL){
         a = (Arvore*)malloc(sizeof(Arvore));
@@ -53,48 +43,6 @@ Arvore* inserir (Arvore * a, char * c) {
     else if(strcmp(c, a->info) == 0)
         a->qtd++;
     return a;
-}
-
-Arvore* remover(Arvore *a, char* c){
-    Arvore * aux, * pai_aux;
-    int filhos = 0;
-    char *tmp;
-
-    if(!a)
-        return(NULL);
-
-    if(strcmp(c, a->info) < 0)
-        a->dir = remover(a->dir, c);
-    else if(strcmp(c, a->info)> 0)
-        a->esq = remover(a->esq, c);
-    else{
-        if(a->esq)
-        filhos++;
-        if(a->dir)
-        filhos++;
-
-        if(filhos == 0){
-        free(a);
-        return(NULL);
-        }
-        else if(filhos == 1){
-        aux = a->esq ? a->esq : a->dir;
-        free(a);
-        return(aux);
-        }
-        else{
-        aux = a->esq;
-        pai_aux = a;
-        while(aux->dir){ pai_aux = aux; aux = aux->dir; }
-        tmp = a->info;
-        a->info = aux->info;
-        aux->info = tmp;
-        pai_aux->dir = remover(aux,tmp);
-        return(a);
-        }
-    }
-
-    return(a);
 }
 
 void imprime(Arvore *a){
